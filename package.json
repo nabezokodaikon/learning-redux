@@ -4,7 +4,10 @@
   "description": "Redux study",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/babel src --out-dir build",
+    "debug": "./node_modules/.bin/babel src --out-dir build && node --harmony-tailcalls build/index.js",
+    "start": "node --harmony-tailcalls build/index.js"
   },
   "repository": {
     "type": "git",
