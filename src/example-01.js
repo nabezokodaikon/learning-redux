@@ -1,6 +1,9 @@
 "use strict";
 
-import { createStore } from "redux";
+import { 
+  combineReducers, 
+  createStore 
+} from "redux";
 
 function visibilityFilter(state = "SHOW_ALL", action) {
   console.log(`Call visibilityFilter: ${state}`);
@@ -35,7 +38,8 @@ function todoApp(state = {}, action) {
   };
 }
 
-const store = createStore(todoApp);
+const reducer = combineReducers({ visibilityFilter, todos });
+const store = createStore(reducer);
 store.subscribe(() => console.log(store.getState()));
 
 store.dispatch({ type: "ADD_TODO", text: "Eat food" });
