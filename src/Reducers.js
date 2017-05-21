@@ -16,3 +16,18 @@
  *  ]
  * }
  */
+
+import { VisibilityFilters } from "./Actions.js";
+
+const initialState = {
+  visibilityFilter: VisibilityFilters.SHOW_ALL,
+  todos: []
+};
+
+function todoApp(state, action) {
+  if (typeof state === "undefined") {
+    return initialState;
+  }
+
+  return state;
+}
