@@ -3,7 +3,7 @@
 import {
   ADD_TODO,
   REMOVE_TODO
-} from "./ActionType.js";
+} from "./ActionTypes.js";
 
 // {
   // type: ADD_TODO,
