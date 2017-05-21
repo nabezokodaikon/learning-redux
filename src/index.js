@@ -2,12 +2,17 @@
 
 import { createStore } from "redux";
 
-function counter(state = 0, action) {
+const initState = {
+  name: "",
+  value: 0
+}
+
+function counter(state = initState, action) {
   switch (action.type) {
     case "INCREMENT":
-      return state + 1;
+      return { name: "Increment", value: state.value + 1 };
     case "DECREMENT":
-      return state - 1;
+      return { name: "Decrement", value: state.value - 1 };
     default:
       return state;
   }
@@ -15,7 +20,8 @@ function counter(state = 0, action) {
 
 const store = createStore(counter);
 store.subscribe(() => {
-  console.log(store.getState());
+  const state = store.getState();
+  console.log(state);
 });
 
 store.dispatch({ type: "INCREMENT" });
