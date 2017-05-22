@@ -2,12 +2,12 @@
   "name": "hello-redux",
   "version": "1.0.0",
   "description": "Redux study",
-  "main": "index.js",
+  "main": "build/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/babel src --out-dir build",
-    "debug": "./node_modules/.bin/babel src --out-dir build && node --harmony-tailcalls build/index.js",
-    "start": "node --harmony-tailcalls build/index.js"
+    "debug": "./node_modules/.bin/babel src --out-dir build && ./node_modules/.bin/electron --js-flags='--harmony-tailcalls' .",
+    "start": "./node_modules/.bin/electron --js-flags='--harmony-tailcalls' ."
   },
   "repository": {
     "type": "git",
@@ -22,10 +22,14 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.5.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "electron": "^1.6.8",
+    "electron-devtools-installer": "^2.2.0"
   },
   "dependencies": {
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0"
   }
