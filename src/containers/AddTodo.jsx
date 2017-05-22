@@ -8,22 +8,36 @@ import { addTodo } from "../Actions";
 class AddTodoSrc extends React.Component {
   constructor(props) {
     super(props);
-    this.input = null;
+    this.state = {
+      value: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const value = this.state.value.trim();
+    if (value.length > 0) {
+      this.props.dispatch(addTodo(this.state.value));
+      this.setState({ value: "" });
+    } else {
+      return;
+    }
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={e => {
-          e.preventDefault();
-          if (this.input.value.trim().length > 0) {
-            this.props.dispatch(addTodo(this.input.value));
-            this.input.value = "";
-          } else {
-            return;
-          }
-        }}>
-          <input ref={node => this.input = node} />
+        <form onSubmit={this.handleSubmit}>
+          <input 
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
           <button type="submit">
             Add Todo
           </button>
