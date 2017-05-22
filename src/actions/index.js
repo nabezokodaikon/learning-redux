@@ -15,9 +15,9 @@ export function setVisibilityFilter(filter) {
   };
 }
 
-export function toggleTodo(index) {
+export function toggleTodo(id) {
   return {
     type: "TOGGLE_TODO",
-    index: index
+    id: id
   };
 }
