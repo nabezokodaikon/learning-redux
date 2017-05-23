@@ -1,5 +1,4 @@
 export function addTodo(id, text) {
-  console.log(`id: ${id}, text: ${text}`);
   return {
     type: "ADD_TODO",
     id: id,
