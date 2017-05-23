@@ -1,7 +1,8 @@
 "use strict";
 
 import installExtension, {
-  REACT_DEVELOPER_TOOLS
+  REACT_DEVELOPER_TOOLS,
+  REDUX_DEVTOOLS
 } from "electron-devtools-installer";
 
 import { app, BrowserWindow } from "electron";
@@ -15,7 +16,7 @@ let win = null;
 function createWindow() {
   win = new BrowserWindow({ width: 1024, height: 960 });
 
-  installExtension(REACT_DEVELOPER_TOOLS)
+  installExtension([REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS])
     .then(name => console.log(`Added Extension: ${name}`))
     .catch(err => console.log("An error occurred: ", err));
 

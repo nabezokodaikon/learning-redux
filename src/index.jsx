@@ -7,7 +7,13 @@ import { createStore } from "redux";
 import todoApp from "./build/reducers/todoApp";
 import App from "./build/components/App";
 
-const store = createStore(todoApp);
+const enhancers = 
+  window.__REDUX_DEVTOOLS_EXTENSION__ && 
+  window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = createStore(
+  todoApp,
+  enhancers
+);
 
 render(
   <Provider store={store}>
