@@ -3,7 +3,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addTodo } from "../Actions";
+import { addTodo, incrementId } from "../actions/index";
 
 class AddTodoSrc extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class AddTodoSrc extends React.Component {
     e.preventDefault();
     const value = this.state.value.trim();
     if (value.length > 0) {
-      this.props.dispatch(addTodo(this.state.value));
+      this.props.onSubmit(this.props.currentId, value);
       this.setState({ value: "" });
     } else {
       return;
@@ -48,9 +48,28 @@ class AddTodoSrc extends React.Component {
 }
 
 AddTodoSrc.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  currentId: PropTypes.number.isRequired
 };
 
-const AddTodo = connect()(AddTodoSrc);
+const mapStateToProps = (state) => {
+  return {
+    currentId: state.idIncrementer
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSubmit: (id, todoText) => {
+      dispatch(addTodo(id, todoText));
+      dispatch(incrementId(id));
+    }
+  };
+};
+
+const AddTodo = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddTodoSrc);
 
 export default AddTodo;

@@ -1,9 +1,8 @@
-let nextTodoId = 0;
-
-export function addTodo(text) {
+export function addTodo(id, text) {
+  console.log(`id: ${id}, text: ${text}`);
   return {
     type: "ADD_TODO",
-    id: nextTodoId++,
+    id: id,
     text: text
   };
 }
@@ -18,6 +17,13 @@ export function setVisibilityFilter(filter) {
 export function toggleTodo(id) {
   return {
     type: "TOGGLE_TODO",
+    id: id
+  };
+}
+
+export function incrementId(id) {
+  return {
+    type: "INCREMENT_ID",
     id: id
   };
 }
