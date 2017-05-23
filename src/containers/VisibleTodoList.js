@@ -1,7 +1,7 @@
 "use strict";
 
 import { connect } from "react-redux";
-import { toggleTodo } from "../Actions";
+import { toggleTodo } from "../actions/index";
 import TodoList from "../components/TodoList";
 
 const getVisibleTodos = (todos, filter) => {

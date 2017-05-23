@@ -1,7 +1,7 @@
 "use strict";
 
 import { connect } from "react-redux";
-import { setVisibilityFilter } from "../actions/index.js";
+import { setVisibilityFilter } from "../actions/index";
 import Link from "../components/Link";
 
 const mapStateToProps = (state, ownProps) => {
