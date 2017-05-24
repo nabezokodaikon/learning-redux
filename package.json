@@ -5,8 +5,8 @@
   "main": "build/main.js",
   "scripts": {
     "test": "jest",
-    "build": "./node_modules/.bin/babel src --out-dir build",
-    "debug": "./node_modules/.bin/babel src --out-dir build && ./node_modules/.bin/electron --js-flags='--harmony-tailcalls' .",
+    "build": "./node_modules/.bin/babel src --out-dir build --ignore *.spec.js",
+    "debug": "./node_modules/.bin/babel src --out-dir build --ignore *.spec.js && ./node_modules/.bin/electron --js-flags='--harmony-tailcalls' .",
     "start": "./node_modules/.bin/electron --js-flags='--harmony-tailcalls' ."
   },
   "repository": {
