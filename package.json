@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "./node_modules/.bin/babel src --out-dir build --ignore *.spec.js",
-    "debug": "./node_modules/.bin/babel src --out-dir build --ignore *.spec.js && ./node_modules/.bin/electron --js-flags='--harmony-tailcalls' .",
+    "debug": "npm run build && ./node_modules/.bin/electron --js-flags='--harmony-tailcalls' .",
     "start": "./node_modules/.bin/electron --js-flags='--harmony-tailcalls' ."
   },
   "repository": {
