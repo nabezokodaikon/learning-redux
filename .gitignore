@@ -2,3 +2,6 @@ node_modules
 build
 tags
 *.log
+sample-resource
+.DS_Store
+yarn.lock
